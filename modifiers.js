@@ -55,3 +55,25 @@ console.log(joeRoot.getElevatorPitch()); // `My unique code: 1, my name: JoeRoot
 //If we try to access the protected member from outside the class, as emp.empCode, we get the following compilation error:
 
 //error TS2445: Property 'empCode' is protected and only accessible within class 'Employee' and its subclasses.
+
+
+
+//ReadOnly Modifier
+//This modifier needs to be initialized at their declaration time or in the constructor.
+//We can also access readonly member from the outside of a class, but its value cannot be changed.
+class Company {  
+ readonly country: string = "India";  
+ readonly name: string;  
+   
+ constructor(contName: string) {  
+ this.name = contName;  
+ }  
+ showDetails() {  
+ console.log(this.name + " : " + this.country);  
+ }  
+}  
+   
+let comp = new Company("JavaTpoint");  
+comp.showDetails(); // JavaTpoint : India  
+   
+comp.name = "TCS"; //Error, name can be initialized only within constructor  
